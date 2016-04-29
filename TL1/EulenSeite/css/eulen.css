@@ -6,6 +6,7 @@ header{
 }
 
 nav {
+ 	
 	background-color: #223912;
 	color: white;
 	border: 2px, solid, black;
@@ -77,6 +78,11 @@ li.dropdown {
 
 
 footer{
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
 	background-color: #4C5D41;
 	color: white;
 	border: 3px solid black;
@@ -84,15 +90,17 @@ footer{
 }
 
 aside{
-	float: right;
-	margin: 10px;
-	width: 25%;
-	border: 3px solid black;
+    float:right;
+	flex-shrink:0;
+    width:280px;
+	margin: 2px;
+    border: 3px solid black;
+   
+   
 }
 div.mainContent {
-	float: left;
-	margin: 10px;
-	width: 65%;
-	border: 3px solid black;
+	flex-grow:1;
+	
+	
 
 }
