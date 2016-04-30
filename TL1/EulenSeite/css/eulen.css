@@ -2,6 +2,7 @@ header{
 	background-color: #4C5D41;
 	color: white;
 	border: 3px solid black;
+    /*Höhe der Navbar, dass sie den Header nicht verdeckt*/
 	margin-top: 50px;
 }
 
@@ -11,6 +12,7 @@ nav {
 	color: white;
 	border: 2px, solid, black;
     height: 50px;
+    /*Navbar oben angeheftet*/
     position: fixed;
     top: 0;
     width: 100%;
@@ -42,6 +44,10 @@ li a:hover, .dropdown:hover .dropbtn {
     background-color: #4C5D41;
 }
 
+li a:active {
+    background-color: #4C5D41;
+}
+
 /**/
 li.dropdown {
     display: inline-block;
@@ -67,7 +73,7 @@ li.dropdown {
 
 /*Farbänderung bei Maushover im Dropdown*/
 .dropdown-content a:hover {
-	background-color: #4C5D41
+	background-color: #4C5D41;
 }
 
 /*Ausklappen des Dropdown bei Maushover*/
@@ -78,6 +84,10 @@ li.dropdown {
 /*Impressum in der Navbar rechts anzeigen*/
 #impressum {
     float: right;
+}
+
+a:active {
+    background-color: #4C5D41;
 }
 
 
