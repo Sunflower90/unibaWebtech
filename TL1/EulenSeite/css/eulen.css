@@ -6,6 +6,11 @@ header{
 	margin-top: 50px;
 }
 
+body{
+    /*Dass der Footer nichts vom body verdeckt */
+    margin-bottom: 40px;
+}
+
 nav {
  	
 	background-color: #223912;
@@ -84,10 +89,6 @@ li.dropdown {
 /*Impressum in der Navbar rechts anzeigen*/
 #impressum {
     float: right;
-}
-
-a:active {
-    background-color: #4C5D41;
 }
 
 
