@@ -1,3 +1,9 @@
+#kleidung #technik #Lebensmittel #Kosmetik a {
+	background-color: #e4cb00;
+	border-color: #c9453c;
+}
+
+
 header{
 	background-color: #4C5D41;
 	color: white;
@@ -49,7 +55,7 @@ li a:hover, .dropdown:hover .dropbtn {
     background-color: #4C5D41;
 }
 
-li a:active {
+.active {
     background-color: #4C5D41;
 }
 
@@ -105,8 +111,8 @@ footer{
 }
 
 aside{
+	
     float:right;
-	flex-shrink:0;
     width:280px;
 	margin: 2px;
     border: 3px solid black;
@@ -114,7 +120,7 @@ aside{
    
 }
 div.mainContent {
-	flex-grow:1;
+	
 	
 	
 
