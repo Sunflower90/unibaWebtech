@@ -12,6 +12,10 @@ header{
 	margin-top: 50px;
 }
 
+header h1 {
+    padding: 30px;
+}
+
 body{
     /*Dass der Footer nichts vom body verdeckt */
     margin-bottom: 40px;
