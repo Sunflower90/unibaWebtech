@@ -1,0 +1,138 @@
+
+header{
+	background-color: #4C5D41;
+	color: white;
+	border: 3px solid black;
+    /*Höhe der Navbar, dass sie den Header nicht verdeckt*/
+	margin-top: 50px;
+}
+
+header h1 {
+    padding: 30px;
+}
+
+body{
+   
+    /*Dass der Footer nichts vom body verdeckt */
+    margin-bottom: 40px;
+
+}
+
+nav {
+ 	
+	background-color: #223912;
+	color: white;
+	border: 2px, solid, black;
+    height: 50px;
+    /*Navbar oben angeheftet*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/*Liste ohne Bulletpoints*/
+.nav-ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.nav-li {
+   float: left;
+}
+
+/*für li-Element (classe dropdown), das einen Link (classe dropdownbtn) enthält*/
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/*Farbänderung bei Maushover*/
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #4C5D41;
+}
+
+.active {
+    background-color: #4C5D41;
+}
+
+/**/
+li.dropdown {
+    display: inline-block;
+}
+
+/*div im Dropdown*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #223912;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/*Links im Dropdown*/
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/*Farbänderung bei Maushover im Dropdown*/
+.dropdown-content a:hover {
+	background-color: #4C5D41;
+}
+
+/*Ausklappen des Dropdown bei Maushover*/
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*Impressum in der Navbar rechts anzeigen*/
+#impressum {
+    float: right;
+}
+
+
+footer{
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+	background-color: #4C5D41;
+	color: white;
+	border: 3px solid black;
+
+}
+
+aside{
+	border-radius: 10px;
+    float:right;
+    width:280px;
+    border: 3px solid black;
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+      
+}
+div.mainContent {
+    border-radius: 10px;
+    /*float: left; */
+    border: 3px solid black;
+	padding: 20px;
+	margin-bottom: 40px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+   
+
+}
+
