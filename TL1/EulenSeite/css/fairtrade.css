@@ -113,11 +113,10 @@ footer{
 
 aside{
 	border-radius: 10px;
-    float:right;
     width:280px;
     border: 3px solid black;
     padding: 20px;
-    margin-bottom: 40px;
+   
     margin-right: 5px;
     margin-left: 5px;
     margin-top: 5px;
@@ -125,14 +124,19 @@ aside{
 }
 div.mainContent {
     border-radius: 10px;
-    /*float: left; */
     border: 3px solid black;
 	padding: 20px;
-	margin-bottom: 40px;
+	
     margin-right: 5px;
     margin-left: 5px;
     margin-top: 5px;
    
 
 }
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+
 
