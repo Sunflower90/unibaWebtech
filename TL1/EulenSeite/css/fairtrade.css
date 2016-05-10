@@ -5,11 +5,13 @@ header{
 	border: 3px solid black;
     /*Höhe der Navbar, dass sie den Header nicht verdeckt*/
 	margin-top: 50px;
+    padding: 30px;
 }
 
 header h1 {
-    padding: 30px;
-}
+    display: inline;
+    padding: 40px;
+    }
 
 body{
    
@@ -43,7 +45,7 @@ nav {
 }
 
 /*für li-Element (classe dropdown), das einen Link (classe dropdownbtn) enthält*/
-li a, .dropbtn {
+nav ul li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -52,7 +54,7 @@ li a, .dropbtn {
 }
 
 /*Farbänderung bei Maushover*/
-li a:hover, .dropdown:hover .dropbtn {
+nav ul li a:hover, .dropdown:hover .dropbtn {
     background-color: #4C5D41;
 }
 
@@ -139,4 +141,13 @@ div.mainContent {
     justify-content: space-around;
 }
 
+a:link {
+    text-decoration: none;
+    color: #223912;
+}
+
+a:hover {
+    font-weight: bold;
+    text-decoration: none;
+}
 
