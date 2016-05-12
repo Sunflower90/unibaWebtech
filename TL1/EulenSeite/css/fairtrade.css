@@ -121,6 +121,11 @@ li.dropdown {
     float: right;
 }
 
+.kleidung-pic-links {
+	border-top: 20px;
+	padding-bottom: 20px;
+}
+
 
 footer{
     position:fixed;
@@ -133,7 +138,11 @@ footer{
 	border: 3px solid black;
 
 }
-
+/*
+#kleidung-statistik{
+	width: 30%;
+}
+*/
 figcaption{
 	font-size: smaller;
 	margin-left:auto;
