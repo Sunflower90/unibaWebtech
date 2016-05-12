@@ -53,6 +53,10 @@ nav {
 	float: right;
 }
 
+.floatimage {
+    float: right;
+}
+
 /*Liste ohne Bulletpoints*/
 .nav-ul {
 	list-style-type: none;
