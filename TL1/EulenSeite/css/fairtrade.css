@@ -126,6 +126,9 @@ li.dropdown {
 	padding-bottom: 20px;
 }
 
+.quelle {
+	font-size: smaller;
+}
 
 footer{
     position:fixed;
