@@ -159,6 +159,7 @@ div.mainContent {
     justify-content: space-around;
 }
 
+/*normale Links (= nicht die Links aus der Navbar)*/
 a:link {
     text-decoration: none;
     /*color: #223912;*/
@@ -166,7 +167,6 @@ a:link {
 }
 
 a:hover {
-    font-weight: bold;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
