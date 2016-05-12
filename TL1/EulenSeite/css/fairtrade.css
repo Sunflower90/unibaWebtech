@@ -15,7 +15,7 @@ header h1 {
 h2 {
 	color: #223912;
 }
-h3 {
+h3, h4 {
 	color: #4C5D41;
 }
 
@@ -37,6 +37,10 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
+}
+/*Bilder floaten lassen*/
+#kleidung-statistik{
+	float: right;
 }
 
 /*Liste ohne Bulletpoints*/
@@ -120,6 +124,13 @@ footer{
 
 }
 
+figcaption{
+	font-size: smaller;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center
+}
+
 aside{
 	border-radius: 10px;
     width:280px;
@@ -150,7 +161,8 @@ div.mainContent {
 
 a:link {
     text-decoration: none;
-    color: #223912;
+    /*color: #223912;*/
+	color: #4C5D41;
 }
 
 a:hover {
