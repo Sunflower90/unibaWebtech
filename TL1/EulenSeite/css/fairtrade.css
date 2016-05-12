@@ -121,13 +121,16 @@ li.dropdown {
     float: right;
 }
 
-.kleidung-pic-links {
+.aside-pic-links {
 	border-top: 20px;
 	padding-bottom: 20px;
 }
 
 .quelle {
 	font-size: smaller;
+}
+.technik-aside-table{
+	font-size:smaller;
 }
 
 footer{
