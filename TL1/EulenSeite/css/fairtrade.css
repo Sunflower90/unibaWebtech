@@ -27,10 +27,21 @@ body{
 
 }
 
+a:link {
+    text-decoration: none;
+    /*color: #223912;*/
+	color: #4C5D41;
+
+}
+a:hover {
+    font-weight: bold;
+    text-decoration: none;
+}
+
 nav {
- 	
+
 	background-color: #223912;
-	color: white;
+	color: white !important;
 	border: 2px, solid, black;
     height: 50px;
     /*Navbar oben angeheftet*/
@@ -58,7 +69,7 @@ nav {
 /*für li-Element (classe dropdown), das einen Link (classe dropdownbtn) enthält*/
 nav ul li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: white !important;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -89,7 +100,7 @@ li.dropdown {
 
 /*Links im Dropdown*/
 .dropdown-content a {
-    color: white;
+    color: white !important;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -159,14 +170,7 @@ div.mainContent {
     justify-content: space-around;
 }
 
-a:link {
-    text-decoration: none;
-    /*color: #223912;*/
-	color: #4C5D41;
-}
 
-a:hover {
-    font-weight: bold;
-    text-decoration: none;
-}
+
+
 
