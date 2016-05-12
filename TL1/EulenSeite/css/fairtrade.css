@@ -12,10 +12,17 @@ header h1 {
     display: inline;
     padding: 40px;
     }
+h2 {
+	color: #223912;
+}
+h3 {
+	color: #4C5D41;
+}
 
 body{
-   
+   /*font-family: Vivaldi, "Brush Script", fantasy;
     /*Dass der Footer nichts vom body verdeckt */
+	font-family:Lucida Sans Unicode;
     margin-bottom: 40px;
 
 }
