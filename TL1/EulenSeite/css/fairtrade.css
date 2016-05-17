@@ -52,6 +52,15 @@ nav {
 #kleidung-statistik{
 	float: right;
 }
+#wein{
+	float: right;
+}
+#snack{
+	float: right;
+}
+#tee{
+	float: left;
+}
 
 /*Liste ohne Bulletpoints*/
 .nav-ul {
@@ -149,6 +158,8 @@ footer{
 	width: 30%;
 }
 */
+
+
 figcaption{
 	font-size: smaller;
 	margin-left:auto;
