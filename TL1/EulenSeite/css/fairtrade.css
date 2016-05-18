@@ -22,7 +22,7 @@ h3, h4 {
 body{
    /*font-family: Vivaldi, "Brush Script", fantasy;
     /*Dass der Footer nichts vom body verdeckt */
-	font-family:Lucida Sans Unicode;
+	font-family:"Lucida Sans Unicode";
     margin-bottom: 40px;
 
 }
@@ -41,10 +41,9 @@ a:visited {
 }
 
 nav {
-
 	background-color: #223912;
 	color: white !important;
-	border: 2px, solid, black;
+	border: 2px solid black;
     height: 50px;
     /*Navbar oben angeheftet*/
     position: fixed;
