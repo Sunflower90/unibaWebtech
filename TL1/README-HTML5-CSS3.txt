@@ -1,4 +1,4 @@
-Was ist HTML5
+﻿Was ist HTML5
 
 <figure> - Tag verwendet (auf Seite Kleidung)
 <aside> - Auf jeder Seite verwendet
@@ -6,6 +6,7 @@ Was ist HTML5
 <footer> - auf jeder Seite verwendet
 <article> - auf Allgemeines und Unterseiten
 <section> - auf Allgemeines und Unterseiten
+<audio> - auf Kaffee
 
 Was ist CSS 3
 
