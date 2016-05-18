@@ -36,6 +36,9 @@ a:link {
 a:hover {
     text-decoration: underline;
 }
+a:visited {
+	color: green ;
+}
 
 nav {
 
