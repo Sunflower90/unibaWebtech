@@ -51,6 +51,10 @@ nav {
     width: 100%;
 }
 
+.italic {
+	font-style:italic;
+}
+
 .widthNinety{
 	width: 90%;
 }

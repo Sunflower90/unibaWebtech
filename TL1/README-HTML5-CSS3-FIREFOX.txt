@@ -7,8 +7,8 @@ Was ist HTML5
 <aside> - Auf jeder Seite verwendet
 <nav> - auf jeder Seite verwendet
 <footer> - auf jeder Seite verwendet
-<article> - auf Allgemeines und Unterseiten
-<section> - auf Allgemeines und Unterseiten
+<article> - auf Allgemeines und Unterseiten (und weiteren Seiten)
+<section> - auf Allgemeines und Unterseiten (und weiteren Seiten)
 <audio> - auf Kaffee
 
 Was ist CSS 3
@@ -19,3 +19,5 @@ Was ist CSS 3
 Sonstige Anforderungen:
 - Breadcrumbs in der Navigation
 - Logo und Überschrift
+- Mindestens 3 externe Links
+- Geforderte Seitenanzahl
