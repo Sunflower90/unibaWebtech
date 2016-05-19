@@ -1,6 +1,9 @@
-﻿Was ist HTML5
+﻿Optimiert auf Firefox
+=====================
 
-<figure> - Tag verwendet (auf Seite Kleidung)
+Was ist HTML5
+
+<figure> - Tag verwendet (auf Seite Kleidung, Kaffee, Sonstige)
 <aside> - Auf jeder Seite verwendet
 <nav> - auf jeder Seite verwendet
 <footer> - auf jeder Seite verwendet
