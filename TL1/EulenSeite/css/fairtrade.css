@@ -50,6 +50,18 @@ nav {
     top: 0;
     width: 100%;
 }
+
+.italic {
+	font-style:italic;
+}
+
+.widthNinety{
+	width: 90%;
+}
+.widthLikeParent {
+	width: 100%;
+}
+
 /*Bilder floaten lassen*/
 #kleidung-statistik{
 	float: right;
@@ -139,6 +151,7 @@ li.dropdown {
 .aside-pic-links {
 	border-top: 20px;
 	padding-bottom: 20px;
+	width: 100%;
 }
 
 .quelle {
@@ -159,11 +172,11 @@ footer{
 	border: 3px solid black;
 
 }
-/*
+
 #kleidung-statistik{
-	width: 30%;
+	width: 40%;
 }
-*/
+
 
 
 figcaption{
