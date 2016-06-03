@@ -1,3 +1,4 @@
+
 //Hier steht unser eigenes javascript
 $(window).load($.get("php/moduleGroups.php"), function(){
 	//return document.innerHTML("<h3>Hallo</h3>")
