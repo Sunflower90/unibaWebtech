@@ -40,8 +40,52 @@
         .attr('d', arc)
         .attr('fill', function (d) {
           return color(d.data);
-        });
-
-}
- 
+        })
+         .attr('d', arc)
+        .on("click", function(d,i) {
+        if(i == 0) {
+         return a1(); 
+         }
+        if(i == 1) {
+        return a2(); 
+        }
+        if(i == 2) {
+        return a3(); 
+        }
+        else if(i==3) {
+        return a4(); 
+        }
+        else if(i==4) {
         
+        a5();
+        }
+        else if(i==5) {
+        a6(); 
+        }
+        else if(i==6) {
+        a7(); 
+        }
+      });       
+}
+function a1() {
+            alert("Hier kommt ein clickable Event A1");
+        }  
+        
+function a2() {
+            alert("Hier kommt ein clickable Event A2");
+        } 
+function a3() {
+            alert("Hier kommt ein clickable Event A3");
+        } 
+function a4() {
+            alert("Hier kommt ein clickable Event A4");
+        } 
+function a5() {
+            alert("Hier kommt ein clickable Event A5");
+        }
+function a6() {
+            alert("Hier kommt ein clickable Event A6");
+        }
+function a7() {
+            alert("Hier kommt ein clickable Event A7");
+        }       
