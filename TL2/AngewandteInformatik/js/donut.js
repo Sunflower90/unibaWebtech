@@ -12,7 +12,7 @@
         .attr('width', 1000)
         .attr('height', 1000);
 
-        <!-- Zentrum von unserem Donut --> 
+        /**Zentrum von unserem Donut **/
         var group = canvas.append('g')
         .attr('transform', 'translate(600, 600)');
 
@@ -21,13 +21,13 @@
         .innerRadius(200)
         .outerRadius(r);
 
-        <!-- sort(null) dafür, dass unsere Ordnung beibehalten wird, sonst wären die Segmenten automatisch nach Größe sortiert --> 
+        /** sort(null) dafür, dass unsere Ordnung beibehalten wird, sonst wären die Segmenten automatisch nach Größe sortiert **/ 
         var pie = d3.layout.pie()
         .value(function (d) {
           return d; })
         .sort(null);
 
-        <!-- Zuerst schicken wir Data an Pie-layout, jedes Group-Element hat die Klasse von Arc --> 
+        /** Zuerst schicken wir Data an Pie-layout, jedes Group-Element hat die Klasse von Arc **/
 
         var arcs = group.selectAll('.arc')
         .data(pie(data))
