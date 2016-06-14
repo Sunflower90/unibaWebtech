@@ -3,22 +3,27 @@
  function donut() 
  {
  var data = [54, 90, 78, 60, 18, 36, 24];
-        var r = 350;
-
+var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
+        var r = 300;
+        
+        var legendRectSize = 20;
+        var legendSpacing = 4;
+        
         var color = d3.scale.ordinal()
         .range(['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2']);
 
         var canvas = d3.select('#canvas').append('svg')
         .attr('width', 1000)
         .attr('height', 1000);
+        
 
         /**Zentrum von unserem Donut **/
         var group = canvas.append('g')
         .attr('transform', 'translate(600, 600)');
-
         
+ 
         var arc = d3.svg.arc()
-        .innerRadius(200)
+        .innerRadius(150)
         .outerRadius(r);
 
         /** sort(null) dafür, dass unsere Ordnung beibehalten wird, sonst wären die Segmenten automatisch nach Größe sortiert **/ 
@@ -43,10 +48,34 @@
         })
          .attr('d', arc)
         .on("click", function(d,i) {
+         var legend = group.selectAll('.legend')
+        .data(data2[i])
+        .enter()
+        .append('g')
+        .attr('class', 'legend');
+        
+        
         if(i == 0) {
+        legend.append('text')
+         .attr('x', -20)
+         .attr('y', 0)
+        .attr("font-size","50px")
+        .text(function(d) { return "A1"; });
+        
          return a1(); 
+         
          }
         if(i == 1) {
+        <!-- Warum geht es nicht?! --> 
+        d3.select('legend').remove();
+        
+        
+        legend.append('text')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr("font-size","50px")
+        .text(function(d) { return "A2"; });
+        
         return a2(); 
         }
         if(i == 2) {
