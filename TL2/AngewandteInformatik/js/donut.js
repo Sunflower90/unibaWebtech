@@ -66,7 +66,7 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
          
          }
         if(i == 1) {
-        <!-- Warum geht es nicht?! --> 
+        /**Warum geht es nicht?! */
         d3.select('legend').remove();
         
         
