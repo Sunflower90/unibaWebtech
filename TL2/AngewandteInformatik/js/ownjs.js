@@ -36,25 +36,35 @@ var displayModuleDetails = function(data){
 	/**for(i = 0; i <= data.details.courses.length; i++){
 		
 	}**/
-	var mandatory = "<h4> Pflichtmodule </h4> \n <table> <tr> <th>Kürzel</th> <th>Bezeichnung</th> <th>Semester</th> <th>ECTS</th> </tr> ";
-	var nonmandatory = "<h4> Wahlmodule </h4> \n <table> <tr> <th>Kürzel</th> <th>Bezeichnung</th> <th>Semester</th> <th>ECTS</th> </tr>";
+//	var mandatory = "<h4> Pflichtmodule </h4> \n <table> <tr> <th>Kürzel</th> <th>Bezeichnung</th> <th>Semester</th> <th>ECTS</th> </tr> ";
+	//var nonmandatory = "<h4> Wahlmodule </h4> \n <table> <tr> <th>Kürzel</th> <th>Bezeichnung</th> <th>Semester</th> <th>ECTS</th> </tr>";
 
+//	var mandatory = $(document.createElement("h4"));
+	$("#table-mandatory").before("<h4>Pflichtmodul</h4>");
+//	var nonmandatory = $(document.createElement('h4')).appendTo('#div-nonmandatory');
+	
 	$.each(data.details.courses, function(index, course){
 		if(course.mandatory){
-			mandatory = mandatory + "\n <tr> <td>" + course.short_name + "</td> </tr>";
+	//		console.log("Console log" + mandatory);
+		//	mandatory.innerHTML = "Hallo";
+		}
+	/**		mandatory = mandatory + "\n <tr> <td>" + course.short_name + "</td> </tr>";
 			mandatory = mandatory + 
 		} else {
-			nonmandatory = nonmandatory + "\n <tr> <td>" + course.short_name + "</td> </tr>"; 
+			nonmandatory = nonmandatory + "\n <tr> <td>" + course.short_name + "</td> </tr>"; **/
 
-		}
+		//			$("#div-mandatory").append(mandatory);
+
 	})
-	mandatory = mandatory + "</table>";
-	nonmandatory = nonmandatory + "</table>"
-	var courses = mandatory + nonmandatory;
-	console.log(courses);
-	document.getElementById("courseList").innerHTML = courses;
-	
+//		mandatory.appendTo("#div-mandatory");
 }
+//	mandatory = mandatory + "</table>";
+//	nonmandatory = nonmandatory + "</table>"
+//	var courses = mandatory + nonmandatory;
+//	console.log(courses);
+//	document.getElementById("courseList").innerHTML = courses;
+	
+
 
 
 $(function(){
