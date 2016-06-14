@@ -8,21 +8,7 @@ $(window).load($.get("php/moduleGroups.php"), function(){
 var msg = "Hat funktioniert."
 var textStatus = "Hat nicht funktioniert."
 
-/**$.ajax({
-	url: "php/moduleGroups.php",
-	type: "GET",
-	data: {"?module_details=A1"},
-	dataType: "json",
-	success: function(msg){
-		console.log("funktioniert");
-	},
-	error: function(jqXHR, textStatus){
-		alert("Request failed" + textStatus)
-	}
-});
 
-
-**/
 
 var createTableHead = function(){
 	var tdHeaderKuerzel = document.createElement('th');
@@ -63,29 +49,6 @@ var displayModuleDetails = function(data){
 
 	var nonmandatoryCourses = document.getElementById("nonmandatoryCourses").innerHTML = "<h4>Wahlkurse</h4> \n";
 
-	/*
-	var tdHeaderKuerzel = document.createElement('th');
-	tdHeaderKuerzel.innerHTML = "Kürzel";
-	var tdHeaderBezeichnung = document.createElement('th');
-	tdHeaderBezeichnung.innerHTML = "Bezeichnung";
-	var tdHeaderSemester = document.createElement('th');
-	tdHeaderSemester.innerHTML = "Semester";
-	var tdHeaderEcts = document.createElement('th');
-	tdHeaderEcts.innerHTML = "ECTS";
-	
-	var thHeader = document.createElement('tr');
-	thHeader.appendChild(tdHeaderKuerzel);
-	thHeader.appendChild(tdHeaderBezeichnung);
-	thHeader.appendChild(tdHeaderSemester);
-	thHeader.appendChild(tdHeaderEcts);
-	*/
-//	var tableHeadMandatory = createTableHead();
-//	var tableHeadNonMandatory = createTableHead();
-	//var thHeaderNonMandatory = document.createElement('th');
-
-	
-//	thHeaderNonMandatory.appendChild(fragmentHeader);
-//	thHeaderMandatory.appendChild(fragmentHeader);
 	var tableMandatory = document.createElement('table');
 	tableMandatory.appendChild(createTableHead());
 	var tableNonMandatory = document.createElement('table');
@@ -95,8 +58,6 @@ var displayModuleDetails = function(data){
 	
 	
 	$.each(data.details.courses, function(index, course){
-//		var fragmentMandatory = document.createDocumentFragment();
-//		var fragmentNonMandatory = document.createDocumentFragment();
 
 		if(course.mandatory == true){
 			console.log("Course: " + course);
@@ -110,15 +71,9 @@ var displayModuleDetails = function(data){
 				td3.innerHTML = course.semester;
 				var td4 = document.createElement('td');
 				td4.innerHTML = course.ects;
-/**
-				fragmentMandatory.appendChild(td1);
-				fragmentMandatory.appendChild(td2);
-				fragmentMandatory.appendChild(td3);
-				fragmentMandatory.appendChild(td4);
-				console.log(fragmentMandatory);
-				*/
+
 				var tr = document.createElement('tr'); 
-		tr.appendChild(td1);
+				tr.appendChild(td1);
 		tr.appendChild(td2);
 		tr.appendChild(td3);
 		tr.appendChild(td4);
@@ -141,25 +96,12 @@ var displayModuleDetails = function(data){
 		tr.appendChild(td4);
 		tableNonMandatory.appendChild(tr);
 
-/*				fragmentNonMandatory.appendChild(td1);
-				fragmentNonMandatory.appendChild(td2);
-				fragmentNonMandatory.appendChild(td3);
-				fragmentNonMandatory.appendChild(td4);
-				*/
 
 		 
 
 		}
 
-		
-		
-		
 
-		/*
-		var trNon = document.createElement('tr');
-		trNon.appendChild(fragmentNonMandatory);
-		tableNonMandatory.appendChild(trNon);
-		*/
 		
 	});
 	document.getElementById("mandatoryCourses").appendChild(tableMandatory);
