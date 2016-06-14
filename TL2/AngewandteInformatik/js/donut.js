@@ -39,6 +39,23 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
         .enter()
         .append('g')
         .attr('class', 'arc');
+        
+        var legend = group.selectAll('.legend')
+        .data(data)
+        .enter()
+        .append('g')
+        .attr('class', 'legend');
+        
+         legend.append('rect')  
+         .attr('x', -100)
+         .attr('y', -100)
+         .attr('width', 200)                          
+         .attr('height', 200)                         
+         .style("fill", "transparent")                                   
+         .style('stroke');
+        
+        
+        
 
         /** Für die oberen Objekten müssen wir Pfade einbinden, dann mit Farbe befüllt mittels function(d) **/
         arcs.append('path')
@@ -48,50 +65,86 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
         })
          .attr('d', arc)
         .on("click", function(d,i) {
-         var legend = group.selectAll('.legend')
-        .data(data2[i])
-        .enter()
-        .append('g')
-        .attr('class', 'legend');
-        
-        
-        if(i == 0) {
-        legend.append('text')
-         .attr('x', -20)
-         .attr('y', 0)
-        .attr("font-size","50px")
-        .text(function(d) { return "A1"; });
-        
-         return a1(); 
          
+     
+         var rect = d3.selectAll("rect"); 
+     
+        if(i == 0) {
+           legend.append('rect')  
+         .attr('x', -100)
+         .attr('y', -100)
+         .attr('width', 200)                          
+         .attr('height', 200)                         
+         .style("fill", "#1f77b4")                                   
+         .style('stroke');
+           
+       
+         return a1(); 
+        
          }
-        if(i == 1) {
-        /**Warum geht es nicht?! */
-        d3.select('legend').remove();
+        if(i == 1) { 
+   legend.append('rect')  
+         .attr('x', -100)
+         .attr('y', -100)
+         .attr('width', 200)                          
+         .attr('height', 200)                         
+         .style("fill", "#ff7f0e")                                   
+         .style('stroke');
         
-        
-        legend.append('text')
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr("font-size","50px")
-        .text(function(d) { return "A2"; });
         
         return a2(); 
         }
         if(i == 2) {
+         legend.append('rect')  
+         .attr('x', -100)
+         .attr('y', -100)
+         .attr('width', 200)                          
+         .attr('height', 200)                         
+         .style("fill", "#2ca02c")                                   
+         .style('stroke');
+        
         return a3(); 
         }
         else if(i==3) {
+         legend.append('rect')  
+         .attr('x', -100)
+         .attr('y', -100)
+         .attr('width', 200)                          
+         .attr('height', 200)                         
+         .style("fill", "#d62728")                                   
+         .style('stroke');
+        
         return a4(); 
         }
         else if(i==4) {
+         legend.append('rect')  
+         .attr('x', -100)
+         .attr('y', -100)
+         .attr('width', 200)                          
+         .attr('height', 200)                         
+         .style("fill", "#9467bd")                                   
+         .style('stroke');
         
         a5();
         }
         else if(i==5) {
+         legend.append('rect')  
+         .attr('x', -100)
+         .attr('y', -100)
+         .attr('width', 200)                          
+         .attr('height', 200)                         
+         .style("fill", "#8c564b")                                   
+         .style('stroke');
         a6(); 
         }
         else if(i==6) {
+         legend.append('rect')  
+         .attr('x', -100)
+         .attr('y', -100)
+         .attr('width', 200)                          
+         .attr('height', 200)                         
+         .style("fill", "#e377c2")                                   
+         .style('stroke');
         a7(); 
         }
       });       
