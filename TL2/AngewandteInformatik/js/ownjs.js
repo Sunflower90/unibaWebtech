@@ -24,6 +24,7 @@ var textStatus = "Hat nicht funktioniert."
 
 **/
 var displayModuleDetails = function(data){
+	console.log("In DisplayModuleDetails");
 	document.getElementById("moduleID").innerHTML = data.details.id;
 	document.getElementById("title").innerHTML = data.details.name;
 
@@ -40,12 +41,18 @@ var displayModuleDetails = function(data){
 	//var nonmandatory = "<h4> Wahlmodule </h4> \n <table> <tr> <th>Kürzel</th> <th>Bezeichnung</th> <th>Semester</th> <th>ECTS</th> </tr>";
 
 //	var mandatory = $(document.createElement("h4"));
-	$("#table-mandatory").before("<h4>Pflichtmodul</h4>");
+
+	var tableHeader = "<tr><td>Kürzel</td><td>Bezeichnung</td><td>Semester</td><td>ECTS</td></tr>"
+// Erstellen der Pflichtmodultabelle
+	$("#header-table-mandatory").remove();
+	$("#table-mandatory").before("<h4 id=\"header-table-mandatory\">Pflichtmodule</h4>");
+	$("#table-mandatory").empty();
+	$("#table-mandatory").append(tableHeader);
 //	var nonmandatory = $(document.createElement('h4')).appendTo('#div-nonmandatory');
 	
 	$.each(data.details.courses, function(index, course){
 		if(course.mandatory){
-	//		console.log("Console log" + mandatory);
+			console.log("Console log" + mandatory);
 		//	mandatory.innerHTML = "Hallo";
 		}
 	/**		mandatory = mandatory + "\n <tr> <td>" + course.short_name + "</td> </tr>";
@@ -55,7 +62,16 @@ var displayModuleDetails = function(data){
 
 		//			$("#div-mandatory").append(mandatory);
 
-	})
+	});
+	// Erstellen der Wahlmodultabelle
+	
+	$("#header-table-nonmandatory").remove();
+	$("#table-nonmandatory").before("<h4 id=\"header-table-nonmandatory\">Wahlmodule</h4>");
+	$("#table-nonmandatory").empty();
+	$("#table-nonmandatory").append(tableHeader);
+
+	
+	
 //		mandatory.appendTo("#div-mandatory");
 }
 //	mandatory = mandatory + "</table>";
@@ -70,7 +86,8 @@ var displayModuleDetails = function(data){
 $(function(){
  $(".clickableModule").click(function() {
  	console.log("clicked");
-	var parameter = $(this).data('parameter'); 
+	var parameter = $(this).data('parameter');
+	console.log(parameter);
 	$.ajax({
 	url: "php/moduleGroups.php",
 	type: "GET",
