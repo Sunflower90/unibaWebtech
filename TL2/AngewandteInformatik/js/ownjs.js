@@ -24,6 +24,24 @@ var textStatus = "Hat nicht funktioniert."
 
 **/
 
+var createTableHead = function(){
+	var tdHeaderKuerzel = document.createElement('th');
+	tdHeaderKuerzel.innerHTML = "Kürzel";
+	var tdHeaderBezeichnung = document.createElement('th');
+	tdHeaderBezeichnung.innerHTML = "Bezeichnung";
+	var tdHeaderSemester = document.createElement('th');
+	tdHeaderSemester.innerHTML = "Semester";
+	var tdHeaderEcts = document.createElement('th');
+	tdHeaderEcts.innerHTML = "ECTS";
+	
+	var thHeader = document.createElement('tr');
+	thHeader.appendChild(tdHeaderKuerzel);
+	thHeader.appendChild(tdHeaderBezeichnung);
+	thHeader.appendChild(tdHeaderSemester);
+	thHeader.appendChild(tdHeaderEcts);
+	return thHeader;
+}
+
 var displayModuleDetails = function(data){
 	$('mandatoryCourses').empty();
 	$('nonmandatoryCourses').empty();
@@ -45,31 +63,35 @@ var displayModuleDetails = function(data){
 
 	var nonmandatoryCourses = document.getElementById("nonmandatoryCourses").innerHTML = "<h4>Wahlkurse</h4> \n";
 
-	
-	var tdHeaderKuerzel = document.createElement('td');
+	/*
+	var tdHeaderKuerzel = document.createElement('th');
 	tdHeaderKuerzel.innerHTML = "Kürzel";
-	var tdHeaderBezeichnung = document.createElement('td');
+	var tdHeaderBezeichnung = document.createElement('th');
 	tdHeaderBezeichnung.innerHTML = "Bezeichnung";
-	var tdHeaderSemester = document.createElement('td');
+	var tdHeaderSemester = document.createElement('th');
 	tdHeaderSemester.innerHTML = "Semester";
-	var tdHeaderEcts = document.createElement('td');
+	var tdHeaderEcts = document.createElement('th');
 	tdHeaderEcts.innerHTML = "ECTS";
 	
-	var thHeader = document.createElement('th');
+	var thHeader = document.createElement('tr');
 	thHeader.appendChild(tdHeaderKuerzel);
 	thHeader.appendChild(tdHeaderBezeichnung);
 	thHeader.appendChild(tdHeaderSemester);
 	thHeader.appendChild(tdHeaderEcts);
+	*/
+//	var tableHeadMandatory = createTableHead();
+//	var tableHeadNonMandatory = createTableHead();
 	//var thHeaderNonMandatory = document.createElement('th');
 
 	
 //	thHeaderNonMandatory.appendChild(fragmentHeader);
 //	thHeaderMandatory.appendChild(fragmentHeader);
-	var tableNonMandatory = document.createElement('table');
-	tableNonMandatory.appendChild(thHeader);
-
 	var tableMandatory = document.createElement('table');
-	tableMandatory.appendChild(thHeader);
+	tableMandatory.appendChild(createTableHead());
+	var tableNonMandatory = document.createElement('table');
+	tableNonMandatory.appendChild(createTableHead());
+
+	
 	
 	
 	$.each(data.details.courses, function(index, course){
