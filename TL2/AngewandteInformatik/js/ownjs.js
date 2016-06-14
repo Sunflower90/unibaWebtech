@@ -100,6 +100,27 @@ var displayModuleDetails = function(data){
 	var nonmandatoryCourses = document.getElementById("nonmandatoryCourses").innerHTML = "<h4>Wahlkurse</h4> \n";
 	var fragmentNonMandatory = document.createDocumentFragment();
 
+	var fragmentHeader = document.createDocumentFragment();
+	var tdHeaderKuerzel = document.createElement('td');
+	tdHeaderKuerzel.innerHTML = "Kürzel";
+	var tdHeaderBezeichnung = document.createElement('td');
+	tdHeaderBezeichnung.innerHTML = "Bezeichnung";
+	var tdHeaderSemester = document.createElement('td');
+	tdHeaderSemester.innerHTML = "Semester";
+	var tdHeaderEcts = document.createElement('td');
+	tdHeaderEcts.innerHTML = "ECTS";
+	fragmentHeader.appendChild(tdHeaderKuerzel);
+	fragmentHeader.appendChild(tdHeaderBezeichnung);
+	fragmentHeader.appendChild(tdHeaderSemester);
+	fragmentHeader.appendChild(tdHeaderEcts);
+	var trHeader = document.createElement('tr');
+	trHeader.appendChild(fragmentHeader);
+
+	var tableMandatory = document.createElement('table');
+	tableMandatory.appendChild(trHeader);
+	
+	var tableNonMandatory = document.createElement('table');
+	tableNonMandatory.appendChild(trHeader);
 	$.each(data.details.courses, function(index, course){
 
 		if(course.mandatory == true){
@@ -141,18 +162,20 @@ var displayModuleDetails = function(data){
 
 		}
 
-		var tableMandatory = document.createElement('table');
+		
 		var tr = document.createElement('tr'); 
 		tr.appendChild(fragmentMandatory);
 		tableMandatory.appendChild(tr);
-		document.getElementById("mandatoryCourses").appendChild(tableMandatory);
+		
 
-		var tableNonMandatory = document.createElement('table');
+		
 		var trNon = document.createElement('tr');
 		trNon.appendChild(fragmentNonMandatory);
 		tableNonMandatory.appendChild(trNon);
-		document.getElementById("nonmandatoryCourses").appendChild(tableNonMandatory);
+		
 	});
+	document.getElementById("mandatoryCourses").appendChild(tableMandatory);
+	document.getElementById("nonmandatoryCourses").appendChild(tableNonMandatory);
 	/*
 	mandatory = mandatory + "</table>";
 	nonmandatory = nonmandatory + "</table>"
