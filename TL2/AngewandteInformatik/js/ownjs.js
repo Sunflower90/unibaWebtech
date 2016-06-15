@@ -156,9 +156,11 @@ var generalInformation = function(data){
 
 
 
- 
  function donut() 
  {
+	 console.log("In donut");
+	 console.log(objectArrayGeneralInformation);
+
  var data = [54, 90, 78, 60, 18, 36, 24];
 var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         var r = 300;
@@ -173,8 +175,8 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         .attr('width', 1000)
         .attr('height', 1000);
 		/** Hier die Höhe und Breite nicht fest setzen **/
-        
 
+		
         /**Zentrum von unserem Donut **/
         var group = canvas.append('g')
         .attr('transform', 'translate(600, 600)');
@@ -186,21 +188,30 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
 
         /** sort(null) dafür, dass unsere Ordnung beibehalten wird, sonst wären die Segmenten automatisch nach Größe sortiert **/ 
         var pie = d3.layout.pie()
-        .value(function (d) {
-          return d; })
-        .sort(null);
+       .value(function (d) {
+         return d.maxECTS; })
+       .sort(null);
 
+		//var pie = d3.layout.pie().sort(null).value(function(d){ return d.maxECTS;});
         /** Zuerst schicken wir Data an Pie-layout, jedes Group-Element hat die Klasse von Arc **/
 
+		/**
+		var arcs = pie(objectArrayGeneralInformation);
+		alert("hallo breakpint");
+		arcs.forEach(function(d,i){
+			
+		}
+		**/
+		
         var arcs = group.selectAll('.arc')
-        //.data(pie(data))
-		.data(data2)
+        .data(pie(objectArrayGeneralInformation))
+		//.data(data2)
         .enter()
         .append('g')
         .attr('class', 'arc')
 		.on("mouseover", function(d){
-			/** Hier die Info im Kreisinnern **/
-			console.log("On Mouseover: " + d.value);
+			//Hier die Info im Kreisinnern 
+			console.log("On Mouseover: " + d.data.id);
 		})
 		.on("click", function(d){
 			alert("Hier kommt ein clickable Event " + d.value);
