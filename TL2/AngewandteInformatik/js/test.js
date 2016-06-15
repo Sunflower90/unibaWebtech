@@ -11,7 +11,8 @@ $(window).load(
 		objectArrayGeneralInformation = generalInformation(data);
 		//console.log("Request ohne Parameter für die allgemeinen Informationen.");
 		//console.log(objectArrayGeneralInformation);
-		document.getElementById('donut').innerHTML = donut();
+		//document.getElementById('donut').innerHTML = donut();
+		donut();
 	},
 	error: function(jqXHR, textStatus){
 		alert("Request failed" + textStatus)
@@ -186,6 +187,7 @@ var generalInformation = function(data){
 
  function donut() 
  {
+	 console.log("in donut");
 	 var myData = objectArrayGeneralInformation[0];
  //var dataset = {
   //apples: [53245, 28479, 19697, 24037, 40245],
@@ -207,12 +209,12 @@ var arc = d3.svg.arc()
     .innerRadius(radius - 100)
     .outerRadius(radius - 50);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#donut").append("svg")
     .attr("width", width)
     .attr("height", height)
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
+console.log(svg);
 var path = svg.selectAll("path")
     .data(pie(myData))
   .enter().append("path")
