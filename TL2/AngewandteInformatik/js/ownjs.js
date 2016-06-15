@@ -1,9 +1,20 @@
+var objectArrayGeneralInformation = [];
 
-//Hier steht unser eigenes javascript
-$(window).load($.get("php/moduleGroups.php"), function(){
-	//return document.innerHTML("<h3>Hallo</h3>")
-	console.log("Hallo")
-}, "json");
+$(window).load(
+	$.ajax({
+	url: "php/moduleGroups.php",
+	type: "GET",	
+	dataType: "json",
+	data: {},
+	success: function(data){
+		objectArrayGeneralInformation = generalInformation(data);
+		console.log("Request ohne Parameter für die allgemeinen Informationen.");
+	},
+	error: function(jqXHR, textStatus){
+		alert("Request failed" + textStatus)
+	}
+})
+);
 
 var msg = "Hat funktioniert."
 var textStatus = "Hat nicht funktioniert."
@@ -133,4 +144,22 @@ $(function(){
 });
 });
 
+var generalInformation = function(data){
+	var objectArray = [];
+	$(data).each(function(d){
+		
+		objectArray.push(d);
+	});
+	return objectArray;
 
+}
+
+
+
+/*$('#loading-gif').bind('ajaxStart', function(){
+	console.log("lädt gerade");
+    $(this).show();
+}).bind('ajaxStop', function(){
+	console.log("hat geladen");
+    $(this).hide();
+});*/
