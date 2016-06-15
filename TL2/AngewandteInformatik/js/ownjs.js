@@ -124,9 +124,28 @@ var displayModuleDetails = function(data){
 }
 
 
+var clickedArc = function(parameter){
+	console.log("clicked an arc");
+	console.log("Parameter " + parameter);
+	$.ajax({
+		url: "php/moduleGroups.php",
+		type: "GET",
+		data: {module_details : parameter},
+		dataType: "json",
+		success: function(data){
+			console.log(data);
+			displayModuleDetails(data);
+		},
+		error: function(jqXHR, textStatus){
+			alert("Request failed" + textStatus);
+		}
+	});
+	
+};
 
 
 $(function(){
+	//$(".arc").click(function(){
  $(".clickableModule").click(function() {
  	console.log("clicked");
 	var parameter = $(this).data('parameter');
@@ -228,7 +247,8 @@ console.log(myData);
 			//console.log("On Mouseover: " + d);
 		})
 		.on("click", function(d){
-			alert("Hier kommt ein clickable Event " + d.value);
+			//alert("Hier kommt ein clickable Event " + d.value);
+			clickedArc(d.data.id);
 		});
 
         
