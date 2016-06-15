@@ -3,7 +3,7 @@
  function donut() 
  {
  var data = [54, 90, 78, 60, 18, 36, 24];
-var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
+var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         var r = 300;
         
         var legendRectSize = 20;
@@ -15,6 +15,7 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
         var canvas = d3.select('#canvas').append('svg')
         .attr('width', 1000)
         .attr('height', 1000);
+		/** Hier die Höhe und Breite nicht fest setzen **/
         
 
         /**Zentrum von unserem Donut **/
@@ -35,10 +36,19 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
         /** Zuerst schicken wir Data an Pie-layout, jedes Group-Element hat die Klasse von Arc **/
 
         var arcs = group.selectAll('.arc')
-        .data(pie(data))
+        //.data(pie(data))
+		.data(data2)
         .enter()
         .append('g')
-        .attr('class', 'arc');
+        .attr('class', 'arc')
+		.on("mouseover", function(d){
+			/** Hier die Info im Kreisinnern **/
+			console.log("On Mouseover: " + d.value);
+		})
+		.on("click", function(d){
+			alert("Hier kommt ein clickable Event " + d.value);
+		});
+
         
         var legend = group.selectAll('.legend')
         .data(data)
@@ -57,6 +67,7 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
         
         
 
+
         /** Für die oberen Objekten müssen wir Pfade einbinden, dann mit Farbe befüllt mittels function(d) **/
         arcs.append('path')
         .attr('d', arc)
@@ -65,6 +76,16 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
         })
          .attr('d', arc)
         .on("click", function(d,i) {
+
+         var legend = group.selectAll('.legend')
+        .data(data2[i])
+        .enter()
+        .append('g')
+        .attr('class', 'legend');
+        
+        /**
+
+		
          
      
          var rect = d3.selectAll("rect"); 
@@ -80,6 +101,12 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
            
        
          return a1(); 
+         
+         }
+        if(i == 1) {
+        //Warum geht es nicht?! 
+        d3.select('legend').remove();
+
         
          }
         if(i == 1) { 
@@ -147,7 +174,10 @@ var data2 = ['A1', 'A2', 'A3', 60, 18, 36, 24];
          .style('stroke');
         a7(); 
         }
-      });       
+		**/
+      });  
+	  
+ 	  
 }
 function a1() {
             alert("Hier kommt ein clickable Event A1");
