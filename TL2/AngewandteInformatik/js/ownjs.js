@@ -7,10 +7,10 @@ $(window).load(
 	dataType: "json",
 	data: {},
 	success: function(data){
+		//objectArrayGeneralInformation = data;
 		objectArrayGeneralInformation = generalInformation(data);
-		console.log("Request ohne Parameter für die allgemeinen Informationen.");
-		alert("Request");
-		console.log(objectArrayGeneralInformation);
+		//console.log("Request ohne Parameter für die allgemeinen Informationen.");
+		//console.log(objectArrayGeneralInformation);
 		document.getElementById('donut').innerHTML = donut();
 	},
 	error: function(jqXHR, textStatus){
@@ -45,7 +45,7 @@ var createTableHead = function(){
 var displayModuleDetails = function(data){
 	$('mandatoryCourses').empty();
 	$('nonmandatoryCourses').empty();
-	console.log("In DisplayModuleDetails");
+	//console.log("In DisplayModuleDetails");
 	document.getElementById("moduleID").innerHTML = data.details.id;
 	document.getElementById("title").innerHTML = data.details.name;
 
@@ -149,6 +149,7 @@ $(function(){
 
 var generalInformation = function(data){
 	var objectArray = [];
+	console.log("In generalInformation" + objectArray);
 //	console.log("Data");
 //	console.log(data);
 	$.each(data, function(index, d){
@@ -156,8 +157,8 @@ var generalInformation = function(data){
 //		console.log("Each data: " + d);
 		objectArray.push(d);
 	});
-	console.log("In generalInformation creating");
-	console.log(objectArray);
+	//console.log("In generalInformation creating");
+	//console.log(objectArray);
 	return objectArray;
 
 }
@@ -169,8 +170,10 @@ var generalInformation = function(data){
 	 console.log("In donut");
 	 console.log(objectArrayGeneralInformation);
 
- var data = [54, 90, 78, 60, 18, 36, 24];
-var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
+ //var data = [54, 90, 78, 60, 18, 36, 24];
+var myData = objectArrayGeneralInformation;
+console.log(myData);
+ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         var r = 300;
         
         var legendRectSize = 20;
@@ -197,7 +200,7 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         /** sort(null) dafür, dass unsere Ordnung beibehalten wird, sonst wären die Segmenten automatisch nach Größe sortiert **/ 
         var pie = d3.layout.pie()
        .value(function (d) {
-         return d; })
+         return d.maxECTS; })
        .sort(null);
 
 		//var pie = d3.layout.pie().sort(null).value(function(d){ return d.maxECTS;});
@@ -210,18 +213,19 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
 			
 		}
 		**/
-		
+		console.log(myData[0]);
         var arcs = 
 		//pie(objectArrayGeneralInformation)
 		group.selectAll('.arc')
-        .data(pie(data))
+        .data(pie(myData[0]))
 		//.data(data2)
         .enter()
         .append('g')
         .attr('class', 'arc')
 		.on("mouseover", function(d){
+			console.log("On mouseOver " + d.data.id);
 			//Hier die Info im Kreisinnern 
-			console.log("On Mouseover: " + d);
+			//console.log("On Mouseover: " + d);
 		})
 		.on("click", function(d){
 			alert("Hier kommt ein clickable Event " + d.value);
@@ -229,7 +233,7 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
 
         
         var legend = group.selectAll('.legend')
-        .data(data)
+        .data(myData[0])
         .enter()
         .append('g')
         .attr('class', 'legend');
