@@ -1,3 +1,11 @@
+ $(document).ready(function () {
+ $(document).ajaxStart(function () {
+ $("#loading-gif").show();
+ }).ajaxStop(function () {
+ $("#loading-gif").hide();
+ });
+})
+
 var objectArrayGeneralInformation = [];
 
 $(window).load(
