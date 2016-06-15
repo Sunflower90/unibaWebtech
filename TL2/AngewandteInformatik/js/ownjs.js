@@ -9,6 +9,9 @@ $(window).load(
 	success: function(data){
 		objectArrayGeneralInformation = generalInformation(data);
 		console.log("Request ohne Parameter für die allgemeinen Informationen.");
+		alert("Request");
+		console.log(objectArrayGeneralInformation);
+		document.getElementById('donut').innerHTML = donut();
 	},
 	error: function(jqXHR, textStatus){
 		alert("Request failed" + textStatus)
@@ -146,10 +149,15 @@ $(function(){
 
 var generalInformation = function(data){
 	var objectArray = [];
-	$(data).each(function(d){
-		
+//	console.log("Data");
+//	console.log(data);
+	$.each(data, function(index, d){
+	//$(data).each(function(d){
+//		console.log("Each data: " + d);
 		objectArray.push(d);
 	});
+	console.log("In generalInformation creating");
+	console.log(objectArray);
 	return objectArray;
 
 }
@@ -189,7 +197,7 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         /** sort(null) dafür, dass unsere Ordnung beibehalten wird, sonst wären die Segmenten automatisch nach Größe sortiert **/ 
         var pie = d3.layout.pie()
        .value(function (d) {
-         return d.maxECTS; })
+         return d; })
        .sort(null);
 
 		//var pie = d3.layout.pie().sort(null).value(function(d){ return d.maxECTS;});
@@ -203,15 +211,17 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
 		}
 		**/
 		
-        var arcs = group.selectAll('.arc')
-        .data(pie(objectArrayGeneralInformation))
+        var arcs = 
+		//pie(objectArrayGeneralInformation)
+		group.selectAll('.arc')
+        .data(pie(data))
 		//.data(data2)
         .enter()
         .append('g')
         .attr('class', 'arc')
 		.on("mouseover", function(d){
 			//Hier die Info im Kreisinnern 
-			console.log("On Mouseover: " + d.data.id);
+			console.log("On Mouseover: " + d);
 		})
 		.on("click", function(d){
 			alert("Hier kommt ein clickable Event " + d.value);
@@ -251,7 +261,7 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         .append('g')
         .attr('class', 'legend');
         
-        /**
+        
 
 		
          
@@ -342,7 +352,7 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
          .style('stroke');
         a7(); 
         }
-		**/
+		
       });  
 	  
  	  
