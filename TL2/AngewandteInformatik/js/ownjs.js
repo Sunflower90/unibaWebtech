@@ -1,13 +1,5 @@
- $(document).ready(function () {
- $(document).ajaxStart(function () {
- $("#loading-gif").show();
- }).ajaxStop(function () {
- $("#loading-gif").hide();
- });
-})
-
 var objectArrayGeneralInformation = [];
-/* GET-Request für allgemeine Informationen */
+
 $(window).load(
 	$.ajax({
 	url: "php/moduleGroups.php",
@@ -15,9 +7,11 @@ $(window).load(
 	dataType: "json",
 	data: {},
 	success: function(data){
+		//objectArrayGeneralInformation = data;
 		objectArrayGeneralInformation = generalInformation(data);
-		console.log("Request ohne Parameter für die allgemeinen Informationen.");
-    
+		//console.log("Request ohne Parameter für die allgemeinen Informationen.");
+		//console.log(objectArrayGeneralInformation);
+		document.getElementById('donut').innerHTML = donut();
 	},
 	error: function(jqXHR, textStatus){
 		alert("Request failed" + textStatus)
@@ -25,10 +19,11 @@ $(window).load(
 })
 );
 
+var msg = "Hat funktioniert."
 var textStatus = "Hat nicht funktioniert."
 
 
-/*baut die Tabellenkopfzeile für die Anzeige der Pflicht- und Wahlkurse*/
+
 var createTableHead = function(){
 	var tdHeaderKuerzel = document.createElement('th');
 	tdHeaderKuerzel.innerHTML = "Kürzel";
@@ -47,10 +42,10 @@ var createTableHead = function(){
 	return thHeader;
 }
 
-/*Zeigt alle Moduldetails mit Beschreibung, ECTS, Pflicht- und Wahlkursen an.*/
 var displayModuleDetails = function(data){
 	$('mandatoryCourses').empty();
 	$('nonmandatoryCourses').empty();
+	//console.log("In DisplayModuleDetails");
 	document.getElementById("moduleID").innerHTML = data.details.id;
 	document.getElementById("title").innerHTML = data.details.name;
 
@@ -62,7 +57,6 @@ var displayModuleDetails = function(data){
 
 	document.getElementById("moduleDescription").innerHTML = data.details.description;
 
-$.inArray()
 
 	var mandatoryCourses = document.getElementById("mandatoryCourses").innerHTML = "<h4>Pflichtkurse</h4> \n";
 	
@@ -130,9 +124,28 @@ $.inArray()
 }
 
 
+var clickedArc = function(parameter){
+	console.log("clicked an arc");
+	console.log("Parameter " + parameter);
+	$.ajax({
+		url: "php/moduleGroups.php",
+		type: "GET",
+		data: {module_details : parameter},
+		dataType: "json",
+		success: function(data){
+			console.log(data);
+			displayModuleDetails(data);
+		},
+		error: function(jqXHR, textStatus){
+			alert("Request failed" + textStatus);
+		}
+	});
+	
+};
 
 
 $(function(){
+	//$(".arc").click(function(){
  $(".clickableModule").click(function() {
  	console.log("clicked");
 	var parameter = $(this).data('parameter');
@@ -155,21 +168,31 @@ $(function(){
 
 var generalInformation = function(data){
 	var objectArray = [];
-	$(data).each(function(d){
-		
+	console.log("In generalInformation" + objectArray);
+//	console.log("Data");
+//	console.log(data);
+	$.each(data, function(index, d){
+	//$(data).each(function(d){
+//		console.log("Each data: " + d);
 		objectArray.push(d);
 	});
+	//console.log("In generalInformation creating");
+	//console.log(objectArray);
 	return objectArray;
 
 }
 
 
 
- 
  function donut() 
  {
- var data = [54, 90, 78, 60, 18, 36, 24];
-var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
+	 console.log("In donut");
+	 console.log(objectArrayGeneralInformation);
+
+ //var data = [54, 90, 78, 60, 18, 36, 24];
+var myData = objectArrayGeneralInformation;
+console.log(myData);
+ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         var r = 300;
         
         var legendRectSize = 20;
@@ -182,8 +205,8 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         .attr('width', 1000)
         .attr('height', 1000);
 		/** Hier die Höhe und Breite nicht fest setzen **/
-        
 
+		
         /**Zentrum von unserem Donut **/
         var group = canvas.append('g')
         .attr('transform', 'translate(600, 600)');
@@ -195,29 +218,42 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
 
         /** sort(null) dafür, dass unsere Ordnung beibehalten wird, sonst wären die Segmenten automatisch nach Größe sortiert **/ 
         var pie = d3.layout.pie()
-        .value(function (d) {
-          return d; })
-        .sort(null);
+       .value(function (d) {
+         return d.maxECTS; })
+       .sort(null);
 
+		//var pie = d3.layout.pie().sort(null).value(function(d){ return d.maxECTS;});
         /** Zuerst schicken wir Data an Pie-layout, jedes Group-Element hat die Klasse von Arc **/
 
-        var arcs = group.selectAll('.arc')
-        //.data(pie(data))
-		.data(data2)
+		/**
+		var arcs = pie(objectArrayGeneralInformation);
+		alert("hallo breakpint");
+		arcs.forEach(function(d,i){
+			
+		}
+		**/
+		console.log(myData[0]);
+        var arcs = 
+		//pie(objectArrayGeneralInformation)
+		group.selectAll('.arc')
+        .data(pie(myData[0]))
+		//.data(data2)
         .enter()
         .append('g')
         .attr('class', 'arc')
 		.on("mouseover", function(d){
-			/** Hier die Info im Kreisinnern **/
-			console.log("On Mouseover: " + d.value);
+			console.log("On mouseOver " + d.data.id);
+			//Hier die Info im Kreisinnern 
+			//console.log("On Mouseover: " + d);
 		})
 		.on("click", function(d){
-			alert("Hier kommt ein clickable Event " + d.value);
+			//alert("Hier kommt ein clickable Event " + d.value);
+			clickedArc(d.data.id);
 		});
 
         
         var legend = group.selectAll('.legend')
-        .data(data)
+        .data(myData[0])
         .enter()
         .append('g')
         .attr('class', 'legend');
@@ -249,7 +285,7 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
         .append('g')
         .attr('class', 'legend');
         
-        /**
+        
 
 		
          
@@ -340,7 +376,7 @@ var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
          .style('stroke');
         a7(); 
         }
-		**/
+		
       });  
 	  
  	  
