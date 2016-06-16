@@ -190,9 +190,11 @@ var generalInformation = function(data){
 	 console.log(objectArrayGeneralInformation);
 
  //var data = [54, 90, 78, 60, 18, 36, 24];
-var myData = objectArrayGeneralInformation;
-console.log(myData);
- var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
+	var myData = objectArrayGeneralInformation;
+	console.log(myData);
+ //var data2 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
+	var canvas = document.querySelector("canvas");
+	var context = canvas.getContext("2d");
         var r = 300;
         
         var legendRectSize = 20;
@@ -214,7 +216,8 @@ console.log(myData);
  
         var arc = d3.svg.arc()
         .innerRadius(150)
-        .outerRadius(r);
+        .outerRadius(r)
+	//	.context(context);
 
         /** sort(null) dafür, dass unsere Ordnung beibehalten wird, sonst wären die Segmenten automatisch nach Größe sortiert **/ 
         var pie = d3.layout.pie()
@@ -233,9 +236,8 @@ console.log(myData);
 		}
 		**/
 		console.log(myData[0]);
-        var arcs = 
 		//pie(objectArrayGeneralInformation)
-		group.selectAll('.arc')
+		var arcs = group.selectAll('.arc')
         .data(pie(myData[0]))
 		//.data(data2)
         .enter()
@@ -250,6 +252,10 @@ console.log(myData);
 			//alert("Hier kommt ein clickable Event " + d.value);
 			clickedArc(d.data.id);
 		});
+
+		
+
+
 
         
         var legend = group.selectAll('.legend')
@@ -271,7 +277,8 @@ console.log(myData);
 
 
         /** Für die oberen Objekten müssen wir Pfade einbinden, dann mit Farbe befüllt mittels function(d) **/
-        arcs.append('path')
+      
+	   arcs.append('path')
         .attr('d', arc)
         .attr('fill', function (d) {
           return color(d.data);
@@ -378,7 +385,7 @@ console.log(myData);
         }
 		
       });  
-	  
+	 
  	  
 }
 function a1() {
