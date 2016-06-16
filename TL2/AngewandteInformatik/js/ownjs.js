@@ -7,7 +7,7 @@
 })
 
 var objectArrayGeneralInformation = [];
-
+/* GET-Request für allgemeine Informationen */
 $(window).load(
 	$.ajax({
 	url: "php/moduleGroups.php",
@@ -17,6 +17,7 @@ $(window).load(
 	success: function(data){
 		objectArrayGeneralInformation = generalInformation(data);
 		console.log("Request ohne Parameter für die allgemeinen Informationen.");
+    
 	},
 	error: function(jqXHR, textStatus){
 		alert("Request failed" + textStatus)
@@ -24,11 +25,10 @@ $(window).load(
 })
 );
 
-var msg = "Hat funktioniert."
 var textStatus = "Hat nicht funktioniert."
 
 
-
+/*baut die Tabellenkopfzeile für die Anzeige der Pflicht- und Wahlkurse*/
 var createTableHead = function(){
 	var tdHeaderKuerzel = document.createElement('th');
 	tdHeaderKuerzel.innerHTML = "Kürzel";
@@ -47,10 +47,10 @@ var createTableHead = function(){
 	return thHeader;
 }
 
+/*Zeigt alle Moduldetails mit Beschreibung, ECTS, Pflicht- und Wahlkursen an.*/
 var displayModuleDetails = function(data){
 	$('mandatoryCourses').empty();
 	$('nonmandatoryCourses').empty();
-	console.log("In DisplayModuleDetails");
 	document.getElementById("moduleID").innerHTML = data.details.id;
 	document.getElementById("title").innerHTML = data.details.name;
 
@@ -62,6 +62,7 @@ var displayModuleDetails = function(data){
 
 	document.getElementById("moduleDescription").innerHTML = data.details.description;
 
+$.inArray()
 
 	var mandatoryCourses = document.getElementById("mandatoryCourses").innerHTML = "<h4>Pflichtkurse</h4> \n";
 	
