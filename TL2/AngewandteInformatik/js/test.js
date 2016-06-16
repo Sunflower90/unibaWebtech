@@ -204,7 +204,10 @@ var pie = d3.layout.pie()
 	return d.maxECTS;
 })
     .sort(null);
+	
+	//  Kreis für den Text in der Mitte
 
+	
 var arc = d3.svg.arc()
     .innerRadius(radius - 100)
     .outerRadius(radius - 50);
@@ -215,6 +218,21 @@ var svg = d3.select("#donut").append("svg")
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 console.log(svg);
+
+
+	
+//Draw the Circle
+var circleGroup = svg.append('g');
+ var circle = circleGroup.append("circle")
+   //                       .attr("cx", 30)
+  //                        .attr("cy", 30)
+                         .attr("r", radius - 100)
+						 .style("fill", "transparent")
+						 .text(function (d) { return "Some text"; });
+var circleText = circleGroup.append('text').text("Test");
+
+
+
 var path = svg.selectAll("path")
     .data(pie(myData))
   .enter().append("path")
@@ -231,7 +249,19 @@ var path = svg.selectAll("path")
 		})
 
 		;
+		/**
+var circles = svg.selectAll("circle")
+                     .append("circle");
+var circleAttributes = circles
+ //                      .attr("cx", function (d) { return d.x_axis; })
+   //                    .attr("cy", function (d) { return d.y_axis; })
+                      .attr("r", radius - 100)
+                      .style("fill", "blue");
 		
-		
+	**/
+
+
+
+			 
 
 }
