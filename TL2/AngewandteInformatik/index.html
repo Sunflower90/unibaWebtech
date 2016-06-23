@@ -2,63 +2,100 @@
 <html>
 <head>
   <!-- unser CSS -->
-	<link rel="stylesheet" type="text/css" href="css/ai.css">
-  <!--Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="css/ai.css">
+ 
+  <!--JQuery --> 
+  <script src="js/jquery-2.2.3.js"></script>
+   <!--Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="js/bootstrap.min.js"></script>
-  <!--JQuery --> 
-	<script src="js/jquery-2.2.3.js"></script>
   <!--d3 -->
-	<script src="js/d3.js"></script>
+  <script src="js/d3.js"></script>
+  <!--script type="text/javascript" language="JavaScript" src="js/donut.js"></script-->
   <!--unser Javascript -->
-  <script src="js/ownjs.js"></script>
-	<meta charset="UTF-8">
+  <script src="js/test.js"></script>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Angewandte Informatik B.Sc.</title>
+  
+  <title>Angewandte Informatik B.Sc.</title>
 </head>
 <body>
-	
-	<div class="row">
+	<div id='canvas' class="row">
 		<div class="container">
-		<div class="col-sm-6" style="background-color:lavender;">
-		  <div class="donut-chart-block block">
-    <div class="donut-chart">
-      <div id="section1" class="clip">
-        <div class="item" data-rel="21"></div>
-      </div>
-      <div id="section2" class="clip">
-        <div class="item" data-rel="39"></div>
-      </div>
-      <div id="section3" class="clip">
-        <div class="item" data-rel="31"></div>
-      </div>
-      <div id="section4" class="clip">
-        <div class="item" data-rel="9"></div>
-      </div>
-      <div class="center"></div>
-    </div>
-  </div>
-		</div>
-        <div class="col-sm-6" style="background-color:lavenderblush;">
-		<header>
-		<h1>BA Angewandte Informatik</h1>
-	</header>
-		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+			<div class="col-sm-6" style="background-color:lavender;">
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+				<div id="donut">
 
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
-
-Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+	   <!--script type="text/javascript">
+           donut(); 
+        </script-->
 		
-		</div>
-			
-</div>
-	
-	</div>
-	
+				</div>
+			</div>
+			<div class="col-sm-6" style="background-color:lavenderblush;">
+				<h1>BA Angewandte Informatik</h1>
+         <!-- <img id="loading-gif" src="img/ajax-loader.gif"></img> -->
+       
+				<div id="displayModuleInfo">
+					<h4 id="moduleTitle"> <span id="moduleID"> </span> <span id="title"></span> <span id="ects"> </span> </h4>
+					<p id="moduleDescription"></p>
+					<div id="courseList">
+ <!-- <<<<<<< HEAD
+			<div id="div-mandatory">
+			<table id="table-mandatory">
+			</table>
+			</div>
+			<div id="div-nonmandatory">
+			<table id="table-nonmandatory">
+			</table>
+			</div>
+=======
+-->
+						<div id="mandatoryCourses">
 
-	
-	
-</body>
-</html>
+						</div>
+						<div id="nonmandatoryCourses">
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+
+      <!--Testelemente für Ajax. Bitte stehen lassen! -->
+      <button class="clickableModule" border="black solid 4px" height="40px" width="40px" data-parameter="A1">
+        Modul A1
+      </button>
+
+      <button class="clickableModule" border="black solid 4px" height="40px" width="40px" data-parameter="A2">
+        Modul A2
+      </button>
+      <button class="clickableModule" border="black solid 4px" height="40px" width="40px" data-parameter="A3">
+        Modul A3
+      </button>
+      <button class="clickableModule" border="black solid 4px" height="40px" width="40px" data-parameter="A4">
+        Modul A4
+      </button>
+      <button class="clickableModule" border="black solid 4px" height="40px" width="40px" data-parameter="A5">
+        Modul A5
+      </button>
+      <button class="clickableModule" border="black solid 4px" height="40px" width="40px" data-parameter="A6">
+        Modul A6
+      </button>
+      <button class="clickableModule" border="black solid 4px" height="40px" width="40px" data-parameter="A7">
+        Modul A7
+      </button>
+
+
+    </div>
+	</div>
+
+
+
+
+
+
+
+  </body>
+  </html>

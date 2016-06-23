@@ -1,0 +1,27 @@
+/*css*/
+
+
+.block {
+  margin: 25px 25px 0 0;
+  background: #394264;
+  border-radius: 5px;
+  float: left;
+  width: 300px;
+  overflow: hidden;
+}
+
+
+
+/*
+Für Tabelle
+*/
+
+#mandatoryCourses table td, th{
+	padding: 5px;
+}
+
+#nonmandatoryCourses table td, th{
+	padding: 5px;
+}
+
+
