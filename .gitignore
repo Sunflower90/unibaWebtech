@@ -1,1 +1,12 @@
 *Thumbs.db
+/application.conf
+/controllers/
+/filters/
+/logback.xml
+/routes
+/services/
+/views/
+/ApplicationTest.class
+/Filters.class
+/IntegrationTest.class
+/Module.class
