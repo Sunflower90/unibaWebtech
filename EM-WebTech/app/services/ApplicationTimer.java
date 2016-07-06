@@ -4,6 +4,8 @@ import java.time.Clock;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 import javax.inject.*;
+
+import models.Stadion;
 import play.Logger;
 import play.inject.ApplicationLifecycle;
 
@@ -35,6 +37,32 @@ public class ApplicationTimer {
         // This code is called when the application starts.
         start = clock.instant();
         Logger.info("ApplicationTimer demo: Starting application at " + start);
+        
+        
+        // TODO Hier die drei Stadien und Patien anlegen
+        Stadion meinStadion = new Stadion();
+        meinStadion.name = "Mein Stadion";
+        meinStadion.adresse = "Irgendwo im Nirgendwo";
+        meinStadion.gates = 3;
+        meinStadion.seats = 5000;
+        meinStadion.sponsor = "Mein Sponsor";
+        Stadion.create(meinStadion);
+        
+        Stadion deinStadion = new Stadion();
+        deinStadion.name = "Dein Stadion";
+        deinStadion.adresse = "Dort, wo der Pfeffer wächst";
+        deinStadion.gates = 25;
+        deinStadion.seats = 15000;
+        deinStadion.sponsor = "Spicy Pepper Company";
+        Stadion.create(deinStadion);
+        
+        Stadion unserStadion = new Stadion();
+        unserStadion.name = "Unser Stadion";
+        unserStadion.adresse = "Hinter dem Mond";
+        unserStadion.gates = 42;
+        unserStadion.seats = 4200;
+        unserStadion.sponsor = "Moonlight Esoterics Inc.";
+        
 
         // When the application starts, register a stop hook with the
         // ApplicationLifecycle object. The code inside the stop hook will
