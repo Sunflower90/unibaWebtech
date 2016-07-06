@@ -10,6 +10,8 @@ import play.data.validation.Constraints.Required;
 
 public class Partie extends Model{
 	
+	// GIt comment
+	
 	@Id
 	public Long pId;
 	@Required

@@ -9,6 +9,9 @@ import com.avaje.ebean.Model;
 import play.data.validation.Constraints.Required;
 
 public class Stadion extends Model {
+	
+	// Git comment
+	
 	@Id
 	public Long sId;
 	@Required
