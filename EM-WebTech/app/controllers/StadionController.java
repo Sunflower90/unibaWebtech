@@ -9,7 +9,7 @@ public class StadionController {
 	public Result create(){
 	return null;
 	}
-	public Result delete(Long id){
+	public Result deleteStadion(Long id){
 		return null;
 	}
 	public Result updateStadion(Long sId){
