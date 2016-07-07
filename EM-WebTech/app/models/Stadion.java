@@ -2,12 +2,15 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.avaje.ebean.Model;
 
 import play.data.validation.Constraints.Required;
 
+@Entity
 public class Stadion extends Model {
 	@Id
 	public Long sId;
@@ -20,6 +23,8 @@ public class Stadion extends Model {
 	@Required
 	public int gates;
 	public String sponsor;
+	@OneToMany(mappedBy="stadion")
+	public List<Partie> partien;
 	
 	public static Finder<Long, Stadion> find = new Finder<Long, Stadion>(Stadion.class);
 	
