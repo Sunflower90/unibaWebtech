@@ -4,10 +4,12 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.MainController.showStartPage()
+POST /stadion/update/:sId controllers.StadionController.updateStadion(sId : Long)
+POST /stadion/delete/:sId controllers.StadionController.deleteStadion(sId : Long)
 
 
-
-
+POST /partie/update/:pId controllers.PartieController.updatePartie(pId : Long)
+POST /partie/delete/:pId controllers.PartieController.deletePartie(pId : Long)
 
 
 

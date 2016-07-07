@@ -1,10 +1,16 @@
 package controllers;
 
+import javax.inject.Inject;
+
+import models.Stadion;
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.Result;
 
 public class StadionController {
 	
-	
+	@Inject
+	private FormFactory formFactory;
 	// Macht nur das Formular auf
 	public Result create(){
 	return null;
@@ -13,6 +19,8 @@ public class StadionController {
 		return null;
 	}
 	public Result updateStadion(Long sId){
+		Stadion stadion = Stadion.find.byId(sId);
+		Form<Stadion> filledForm = formFactory.form(Stadion.class).fill(stadion);
 		return null;
 		
 	}
