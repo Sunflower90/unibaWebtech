@@ -1,0 +1,15 @@
+@(formType: String, stadionForm: Form[Stadion]) 
+
+	@main(formType + " Stadion") {
+	
+	<h1>@formType Stadion</h1>
+	
+	@helper.form(action = routes.StadionController.storeStadion()) {
+	<input type="hidden" id="@stadionForm("sId").id"
+		name="@stadionForm("sId").name"
+		value="@stadionForm("sId").value" />
+	@helper.inputText(stadionForm("name"))
+	@helper.inputText(stadionForm("description"))
+	<input type="submit" value="Save">
+	} 
+}
