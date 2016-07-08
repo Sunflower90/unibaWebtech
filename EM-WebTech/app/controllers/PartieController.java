@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import models.Partie;
 import models.Stadion;
+import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -23,16 +24,37 @@ public class PartieController extends Controller{
 		return null;
 	}
 	
+	
+	/**
+	 * Just returns the PAGE to update, does not update the Data in the Database
+	 * @param pId
+	 * @return
+	 */
 	public Result updatePartie(Long pId){
-		return null;
+		Partie partie = Partie.find.byId(pId);
+		Form<Partie> filledForm = formFactory.form(Partie.class).fill(partie);
+		return ok(views.html.partieForm.render("Update", filledForm, Stadion.read()));
 	}
 	
 	public Result deletePartie(Long pId){
-		return null;
+		Partie.delete(pId);
+		return redirect(routes.MainController.showStartPage());
 	}
 	
 	public Result storePartie(){
-		return null;
+		Form<Partie> partieForm = formFactory.form(Partie.class);
+		Form<Partie> filledForm = partieForm.bindFromRequest();
+		if (filledForm.hasErrors()){
+			return ok(views.html.partieForm.render("Correct", filledForm, Stadion.read()));
+		} else {
+			Partie partie = filledForm.get();
+			if (partie.pId == null){
+				Partie.create(partie);
+			} else {
+				Partie.update(partie);
+			}
+		}
+		return redirect(routes.MainController.showStartPage());
 	}
 	
 }

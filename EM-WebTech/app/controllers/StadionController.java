@@ -46,13 +46,10 @@ public class StadionController extends Controller {
 			} else {
 			 Stadion.update(stadion);
 			}
-			return ok(views.html.ourIndex.render("Korruptionsimulator", Partie.read(), Stadion.read()));
+			return redirect(routes.MainController.showStartPage());
 		}
 			
 	}
 
-	public Result readStadion() {
-		return null;
-	}
 
 }
