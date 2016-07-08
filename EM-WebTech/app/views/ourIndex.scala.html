@@ -2,6 +2,8 @@
 @main("Korruptionssimulator"){
 <h1> Unsere Scheiß Startseite </h1>
 <h2>Stadion</h2>
+	<a href="@routes.StadionController.createStadion()">Create Stadion</a>
+
 <table>
 @for(stadion <- stadien){
 	<tr>
@@ -23,6 +25,8 @@
 </table>
 
 <h2>Partie</h2>
+	<a href="@routes.PartieController.createPartie()">Create Partie</a>
+
 <table>
 @for(partie <- partien){
 	<tr>

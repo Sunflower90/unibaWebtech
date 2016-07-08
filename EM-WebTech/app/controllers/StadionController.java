@@ -4,6 +4,7 @@ package controllers;
 //import com.google.inject.Inject;
  import javax.inject.Inject;
 
+import models.Partie;
 import models.Stadion;
 import play.data.Form;
 import play.data.FormFactory;
@@ -16,22 +17,38 @@ public class StadionController extends Controller {
 	private FormFactory formFactory;
 
 	// Macht nur das Formular auf
-	public Result create() {
+	public Result createStadion() {
 		return ok(views.html.stadionForm.render("Create", formFactory.form(Stadion.class)));
 	}
 
 	public Result deleteStadion(Long id){
-		return null;
+		Stadion.delete(id);
+		return redirect(routes.MainController.showStartPage());
 	}
 	public Result updateStadion(Long sId){
 		Stadion stadion = Stadion.find.byId(sId);
 		Form<Stadion> filledForm = formFactory.form(Stadion.class).fill(stadion);
-		return null;
+		return ok(views.html.stadionForm.render("Update", filledForm));
 
 	}
 
 	public Result storeStadion() {
-		return null;
+		Form<Stadion> stadionForm = formFactory.form(Stadion.class);
+		Form<Stadion> filledForm = stadionForm.bindFromRequest();
+		if (filledForm.hasErrors()){
+			return ok(views.html.stadionForm.render("Correct", filledForm));
+		} else{
+			Stadion stadion = filledForm.get();
+			
+			// id anlegen
+			if (stadion.sId == null){
+				Stadion.create(stadion);
+			} else {
+			 Stadion.update(stadion);
+			}
+			return ok(views.html.ourIndex.render("Korruptionsimulator", Partie.read(), Stadion.read()));
+		}
+			
 	}
 
 	public Result readStadion() {
