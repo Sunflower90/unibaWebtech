@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -24,7 +25,7 @@ public class Partie extends Model{
 	@Required
 	public String guest;	
 	@Required
-	public String date;
+	public Date date;
 	
 	public static Finder<Long, Partie> find = new Finder<Long, Partie>(Partie.class);
 	

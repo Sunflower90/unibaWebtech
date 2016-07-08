@@ -10,23 +10,15 @@
 		name="@partieForm("pId").name"
 		value="@partieForm("pId").value"/>
 	@inputText(partieForm("host"))
-		@inputText(partieForm("guest"))
+	@inputText(partieForm("guest"))
 	
-		@inputText(partieForm("date"))
-	
-	<div>
-		<div>
-			<strong>Stadien</strong>
-		</div>
-	<div>
-	<select>
-	@for(stadion <- stadien) { 
-	<option>@stadion.name</option>
-		
-		}
-		</select>
+	@inputDate(partieForm("date"))
+	@select(
+		partieForm("stadion.sId"),
+		stadien.map(s=> s.sId.toString -> s.name)
+		)
 	</div>
 </div>
-
+<input type="submit" value="Save">
 	}
 }

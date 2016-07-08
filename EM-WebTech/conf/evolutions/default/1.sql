@@ -8,7 +8,7 @@ create table partie (
   stadion_s_id              bigint,
   host                      varchar(255),
   guest                     varchar(255),
-  date                      varchar(255),
+  date                      timestamp,
   constraint pk_partie primary key (p_id))
 ;
 
