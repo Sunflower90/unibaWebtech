@@ -1,0 +1,46 @@
+@(title : String)(partien : List[Partie])(stadien : List[Stadion])
+@main("Korruptionssimulator"){
+<h1> Unsere Scheiß Startseite </h1>
+<h2>Stadion</h2>
+<table>
+@for(stadion <- stadien){
+	<tr>
+		<td>@stadion.name</td>
+		<td>@stadion.adresse</td>
+		<td>@stadion.seats</td>
+		<td>@stadion.gates</td>
+		<td>@stadion.sponsor</td>
+		<td>@helper.form(action =
+				routes.StadionController.updateStadion(stadion.sId)) { <input
+				type="submit" value="Update"> }
+			</td>
+			<td>@helper.form(action =
+				routes.StadionController.deleteStadion(stadion.sId)) { <input
+				type="submit" value="Delete"> }
+			</td>	
+	</tr>
+	}
+</table>
+
+<h2>Partie</h2>
+<table>
+@for(partie <- partien){
+	<tr>
+		<td>@partie.stadion</td>
+		<td>@partie.host</td>
+		<td>@partie.guest</td>
+		<td>@partie.date</td>
+		<td>@helper.form(action =
+				routes.PartieController.updatePartie(partie.pId)) { <input
+				type="submit" value="Update"> }
+			</td>
+			<td>@helper.form(action =
+				routes.PartieController.deletePartie(partie.pId)) { <input
+				type="submit" value="Delete"> }
+			</td>	
+	</tr>
+	}
+</table>
+
+
+}
