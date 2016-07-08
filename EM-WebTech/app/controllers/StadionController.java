@@ -1,8 +1,8 @@
 package controllers;
 
 
-import com.google.inject.Inject;
-// import javax.inject.Inject;
+//import com.google.inject.Inject;
+ import javax.inject.Inject;
 
 import models.Stadion;
 import play.data.Form;
@@ -19,21 +19,13 @@ public class StadionController extends Controller {
 	public Result create() {
 		return ok(views.html.stadionForm.render("Create", formFactory.form(Stadion.class)));
 	}
-<<<<<<< HEAD
 
-	public Result delete(Long id) {
-		return null;
-	}
-
-	public Result updateStadion(Long sId) {
-=======
 	public Result deleteStadion(Long id){
 		return null;
 	}
 	public Result updateStadion(Long sId){
 		Stadion stadion = Stadion.find.byId(sId);
 		Form<Stadion> filledForm = formFactory.form(Stadion.class).fill(stadion);
->>>>>>> origin/master
 		return null;
 
 	}

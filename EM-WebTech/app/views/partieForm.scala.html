@@ -1,4 +1,4 @@
-@(formType: String, partieForm: Form[Partie], stadions: List[models.Stadion]) 
+@(formType: String, partieForm: Form[Partie], stadien: List[models.Stadion]) 
 
 @import helper._ 
 
@@ -6,27 +6,24 @@
 	<h1>@formType Partie</h1>
 	@form(routes.PartieController.storePartie()) {
 		<input type="hidden" id="@partieForm("pId").id"
-		stadion="@partieForm("pId").stadion" 
-		value="@partieForm("pID").value"/>
+@*		stadion="@partieForm("pId").stadion" *@
+		name="@partieForm("pId").name"
+		value="@partieForm("pId").value"/>
 	@inputText(partieForm("name"))
 	<div>
 		<div>
 			<strong>Stadien</strong>
 		</div>
 	<div>
+	<select>
 	@for(stadion <- stadien) { 
-		<label class="dropdown"> 
-		<input type="dropdown" name="stadien.pId[]" value="@stadion.sId"
-			@if(partieForm.value.isDefined &&
-				partieForm.value.get.stadien.contains(stadion)) {			
-					checked="checked" 
-			}
-		/>
-		@stadion.guest
-		</label> }
+	<option>stadion.name</option>
+		
+		}
+		</select>
 	</div>
 </div>
-@textarea(field = recipeForm("description"), args = 'rows -> 3, 'cols -> 50)
+@textarea(field = partieForm("stadion"), args = 'rows -> 3, 'cols -> 50)
 <input type="submit" value="Save">
-	} 
+	}
 }
