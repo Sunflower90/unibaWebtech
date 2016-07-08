@@ -21,6 +21,23 @@
 				type="submit" value="Delete"> }
 			</td>	
 	</tr>
+	@for(partie <- stadion.partien){
+	<tr>
+	<td></td>
+		<td>@partie.host</td>
+		<td>@partie.guest</td>
+		<td>@partie.date</td>
+		<td>@helper.form(action =
+				routes.PartieController.updatePartie(partie.pId)) { <input
+				type="submit" value="Update"> }
+			</td>
+			<td>@helper.form(action =
+				routes.PartieController.deletePartie(partie.pId)) { <input
+				type="submit" value="Delete"> }
+			</td>	
+			<td></td>
+	</tr>
+	}
 	}
 </table>
 

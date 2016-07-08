@@ -62,7 +62,8 @@ public class ApplicationTimer {
         unserStadion.gates = 42;
         unserStadion.seats = 4200;
         unserStadion.sponsor = "Moonlight Esoterics Inc.";
-        
+        Stadion.create(unserStadion);
+
 
         // When the application starts, register a stop hook with the
         // ApplicationLifecycle object. The code inside the stop hook will

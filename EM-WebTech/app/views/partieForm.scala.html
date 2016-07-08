@@ -9,7 +9,11 @@
 @*		stadion="@partieForm("pId").stadion" *@
 		name="@partieForm("pId").name"
 		value="@partieForm("pId").value"/>
-	@inputText(partieForm("name"))
+	@inputText(partieForm("host"))
+		@inputText(partieForm("guest"))
+	
+		@inputText(partieForm("date"))
+	
 	<div>
 		<div>
 			<strong>Stadien</strong>
@@ -17,13 +21,12 @@
 	<div>
 	<select>
 	@for(stadion <- stadien) { 
-	<option>stadion.name</option>
+	<option>@stadion.name</option>
 		
 		}
 		</select>
 	</div>
 </div>
-@textarea(field = partieForm("stadion"), args = 'rows -> 3, 'cols -> 50)
-<input type="submit" value="Save">
+
 	}
 }

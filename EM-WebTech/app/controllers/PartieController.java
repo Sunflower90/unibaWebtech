@@ -10,7 +10,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 public class PartieController extends Controller{
-//	@Inject
+	@Inject
 	private FormFactory formFactory;
 	/**
 	 * Only returns the create PAGE, does not create the object!
