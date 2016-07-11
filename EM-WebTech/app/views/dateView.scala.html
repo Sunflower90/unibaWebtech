@@ -1,0 +1,14 @@
+@(title : String)(partien : List[Partie])(stadien : List[Stadion])
+@main("Korruptionssimulator"){
+<h1> Terminansicht </h1>
+
+<table>
+@for(partie <- partien.sortBy(date)){
+	<tr>
+		<td>@partie.guest</td>
+		<td>@partie.host</td>
+		<td>@partie.stadion</td>
+	</tr>
+}
+</table>
+}
