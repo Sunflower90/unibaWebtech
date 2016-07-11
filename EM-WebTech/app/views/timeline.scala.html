@@ -5,12 +5,21 @@
 	
 		<a href="@routes.MainController.showStartPage">Zur allgemeinen Übersicht</a>
 		<table>
+		<tr>
+			<td>Host</td>
+			<td>Guest</td>
+			<td>Stadion</td>
+			<td>Date</td>
+			<td>Time until</td>
+			
+		</tr>
 		@for(partie <- partien) {
 			<tr>
 				<td>@partie.host</td>
 				<td>@partie.guest</td>
-				<td>@partie.stadion</td>
+				<td>@partie.stadion.name</td>
 				<td>@partie.date</td>
+				<td>@partie.getPeriod()</td>
 
 			</tr>
 		}
