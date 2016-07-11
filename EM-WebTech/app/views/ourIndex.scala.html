@@ -1,8 +1,13 @@
 @(title : String)(partien : List[Partie])(stadien : List[Stadion])
 @main("Korruptionssimulator"){
-<h1> Unsere Scheiß Startseite </h1>
-<h2>Stadion</h2>
+<h1> Korruptionssimulator </h1>
+	<a href="@routes.MainController.showTimelinePage()">Show Timeline</a>
+
+<h2>Übersicht</h2>
 	<a href="@routes.StadionController.createStadion()">Create Stadion</a>
+	<br>
+	<a href="@routes.PartieController.createPartie()">Create Partie</a>
+	
 
 <table>
 @for(stadion <- stadien){
@@ -41,27 +46,6 @@
 	}
 </table>
 
-<h2>Partie</h2>
-	<a href="@routes.PartieController.createPartie()">Create Partie</a>
-
-<table>
-@for(partie <- partien){
-	<tr>
-		<td>@partie.stadion</td>
-		<td>@partie.host</td>
-		<td>@partie.guest</td>
-		<td>@partie.date</td>
-		<td>@helper.form(action =
-				routes.PartieController.updatePartie(partie.pId)) { <input
-				type="submit" value="Update"> }
-			</td>
-			<td>@helper.form(action =
-				routes.PartieController.deletePartie(partie.pId)) { <input
-				type="submit" value="Delete"> }
-			</td>	
-	</tr>
-	}
-</table>
 
 
 }
