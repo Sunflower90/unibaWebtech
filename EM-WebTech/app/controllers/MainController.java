@@ -11,7 +11,7 @@ import views.html.*;
 
 public class MainController extends Controller {
 	public Result showStartPage(){
-		return ok(views.html.ourIndex.render("Korruptionssimulator", Partie.read(), Stadion.read()));
+		return ok(views.html.ourIndex.render("Korruptionssimulator", Partie.read(), Stadion.read(), atLeastOneStadiumExists()));
 	}
 	
 	public Result showTimelinePage(){
@@ -26,5 +26,12 @@ public class MainController extends Controller {
 			});
 		 return unsorted;
 		
+	}
+	
+	private boolean atLeastOneStadiumExists(){
+		if (Stadion.read().size() > 0){
+			return true;
+		}
+		return false;
 	}
 }
