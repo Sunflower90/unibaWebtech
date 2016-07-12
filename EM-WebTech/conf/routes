@@ -19,13 +19,14 @@ GET 	/stadion/create 		controllers.StadionController.createStadion()
 POST /stadion/store controllers.StadionController.storeStadion()
 
 
+
 # Partie
 POST /partie/update/:pId controllers.PartieController.updatePartie(pId : Long)
 POST /partie/delete/:pId controllers.PartieController.deletePartie(pId : Long)
 POST /partie/store controllers.PartieController.storePartie()
 GET 	/partie/create 		controllers.PartieController.createPartie()
 
-
+POST /partie/deletionConfirmation/:pId 	controllers.PartieController.showPartieDeletionConfirmation(pId: Long)
 
 
 #####################################################################################

@@ -36,6 +36,10 @@ public class PartieController extends Controller{
 		return ok(views.html.partieForm.render("Update", filledForm, Stadion.read()));
 	}
 	
+	public Result showPartieDeletionConfirmation(Long pId){
+		return ok(views.html.confirmPartieDeletion.render(pId));
+	}
+	
 	public Result deletePartie(Long pId){
 		Partie.delete(pId);
 		return redirect(routes.MainController.showStartPage());

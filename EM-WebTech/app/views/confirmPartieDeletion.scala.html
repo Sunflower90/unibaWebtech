@@ -1,0 +1,11 @@
+@(pId: Long)
+@main("Delete Partie"){
+  Do you really want to delete the game?
+  
+  <form action="@routes.PartieController.deletePartie(pId)" method="POST">
+  	<input type="submit" value = "Yes">
+  </form>
+  <form action="@routes.MainController.showStartPage()">
+  	<input type="submit" value = "No">
+  </form>
+}

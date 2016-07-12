@@ -2,6 +2,7 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -23,7 +24,7 @@ public class Stadion extends Model {
 	@Required
 	public int gates;
 	public String sponsor;
-	@OneToMany(mappedBy="stadion")
+	@OneToMany(mappedBy="stadion", cascade=CascadeType.ALL)
 	public List<Partie> partien;
 	
 	public static Finder<Long, Stadion> find = new Finder<Long, Stadion>(Stadion.class);
