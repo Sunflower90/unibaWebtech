@@ -1,0 +1,11 @@
+@(sId: Long)
+@main("Delete Partie"){
+  Do you really want to delete the Stadium?
+  
+  <form action="@routes.StadionController.deleteStadion(sId)" method="POST">
+  	<input type="submit" value = "Yes">
+  </form>
+  <form action="@routes.MainController.showStartPage()">
+  	<input type="submit" value = "No">
+  </form>
+}

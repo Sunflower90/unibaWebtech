@@ -20,6 +20,10 @@ public class StadionController extends Controller {
 	public Result createStadion() {
 		return ok(views.html.stadionForm.render("Create", formFactory.form(Stadion.class)));
 	}
+	
+	public Result showStadionDeletionConfirmation(Long sId){
+		return ok(views.html.confirmStadionDeletion.render(sId));
+	}
 
 	public Result deleteStadion(Long id){
 		Stadion.delete(id);

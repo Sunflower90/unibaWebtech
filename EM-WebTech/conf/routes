@@ -18,6 +18,7 @@ POST /stadion/delete/:sId controllers.StadionController.deleteStadion(sId : Long
 GET 	/stadion/create 		controllers.StadionController.createStadion()
 POST /stadion/store controllers.StadionController.storeStadion()
 
+POST /stadion/deletionConfirmation/:pId 	controllers.StadionController.showStadionDeletionConfirmation(pId: Long)
 
 
 # Partie
