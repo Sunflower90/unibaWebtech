@@ -1,9 +1,9 @@
-@(formType: String, partieForm: Form[Partie], stadien: List[models.Stadion]) 
+@(message: String, partieForm: Form[Partie], stadien: List[models.Stadion]) 
 
 @import helper._ 
 
-@main(formType + " Partien") {
-	<h1>@formType Partie</h1>
+@main(message) {
+	<h1>@message</h1>
 	@form(routes.PartieController.storePartie()) {
 		<input type="hidden" id="@partieForm("pId").id"
 @*		stadion="@partieForm("pId").stadion" *@

@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import models.Partie;
@@ -33,7 +36,7 @@ public class PartieController extends Controller{
 	public Result updatePartie(Long pId){
 		Partie partie = Partie.find.byId(pId);
 		Form<Partie> filledForm = formFactory.form(Partie.class).fill(partie);
-		return ok(views.html.partieForm.render("Update", filledForm, Stadion.read()));
+		return ok(views.html.partieForm.render("Update Partie", filledForm, Stadion.read()));
 	}
 	
 	public Result showPartieDeletionConfirmation(Long pId){
@@ -49,7 +52,9 @@ public class PartieController extends Controller{
 		Form<Partie> partieForm = formFactory.form(Partie.class);
 		Form<Partie> filledForm = partieForm.bindFromRequest();
 		if (filledForm.hasErrors()){
-			return ok(views.html.partieForm.render("Correct", filledForm, Stadion.read()));
+			return ok(views.html.partieForm.render("Input had errors: Please Correct Partie", filledForm, Stadion.read()));
+		} else if (partieAtSameDateInSameStadionAlreadyExists(Partie.read(), filledForm.get().date, filledForm.get().stadion.sId)){
+			return ok(views.html.partieForm.render("A game cannot take place at that date and time, there is already a game, please change date or Stadium", filledForm, Stadion.read()));
 		} else {
 			Partie partie = filledForm.get();
 			if (partie.pId == null){
@@ -59,6 +64,15 @@ public class PartieController extends Controller{
 			}
 		}
 		return redirect(routes.MainController.showStartPage());
+	}
+	
+	private boolean partieAtSameDateInSameStadionAlreadyExists(List<Partie> partien, Date date, long sId){
+		for (Partie partie : partien){
+			if(date.equals(partie.date) && sId == partie.stadion.sId ){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }
